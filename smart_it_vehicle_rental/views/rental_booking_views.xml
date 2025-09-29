@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="rental_booking_view_list" model="ir.ui.view">
+        <field name="name">rental.booking.view.list</field>
+        <field name="model">rental.booking</field>
+        <field name="arch" type="xml">
+            <list string="Rental Bookings">
+                <field name="booking_number" string="Booking #"/>
+                <field name="customer_id"/>
+                <field name="vehicle_id"/>
+                <field name="pickup_date"/>
+                <field name="return_date"/>
+                <field name="total_amount" sum="Total Amount"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="rental_booking_view_form" model="ir.ui.view">
+        <field name="name">rental.booking.view.form</field>
+        <field name="model">rental.booking</field>
+        <field name="arch" type="xml">
+            <form string="Rental Booking" duplicate="false">
+                <header>
+                    <button name="action_confirm" type="object"
+                            string="Confirm" class="btn btn-primary"
+                            invisible="state != 'draft'"/>
+
+                    <button name="action_draft" type="object"
+                            string="Reset to Draft" class="btn btn-primary"
+                            invisible="state not in ('confirmed', 'cancelled')"/>
+
+                    <button name="action_cancel" type="object"
+                            string="Cancel" class="btn btn-primary"
+                            invisible="state != 'draft'"/>
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,active,completed,cancelled"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <label for="booking_number" class="oe_form_label"/>
+                        <h1>
+                            <field name="booking_number" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="user_id" readonly="1"/>
+                            <field name="customer_id" readonly="state != 'draft'"/>
+                            <field name="vehicle_id" domain="[('status', '=', 'available')]"
+                                   options="{'no_create_edit': True, 'no_create': True, 'no_edit': True}"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Rental Info" name="rental_info">
+                            <group>
+                                <field name="active" invisible="1"/>
+                                <field name="pickup_date" readonly="state != 'draft'"/>
+                                <field name="return_date"/>
+                                <field name="actual_return_date"/>
+                                <field name="rental_days" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="pickup_location" readonly="state != 'draft'"/>
+                                <field name="return_location"/>
+                            </group>
+                        </page>
+
+                        <page string="Customer &amp; Vehicle" name="customer_and_vehicle">
+                            <group name="other_details">
+                                <field name="insurance_required" readonly="state != 'draft'"/>
+                                <field name="driver_license" readonly="state != 'draft'"/>
+                                <field name="additional_drivers" readonly="state != 'draft'"/>
+                                <field name="special_requests" readonly="state != 'draft'"/>
+                            </group>
+                            <group string="Vehicle Details" name="vehicle_details">
+                                <group string="Mileage">
+                                    <field name="pickup_mileage"/>
+                                    <field name="return_mileage"/>
+                                </group>
+                                <group string="Fuel">
+                                    <field name="fuel_level_pickup" readonly="state != 'draft'"/>
+                                    <field name="fuel_level_return"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Pricing &amp; Deposit" name="pricing_details">
+                            <group name="amount_details">
+                                <field name="daily_rate" readonly="state != 'draft'"/>
+                                <field name="base_amount" readonly="1"/>
+                                <field name="extra_fees"/>
+                                <field name="deposit_amount" readonly="state != 'draft'"/>
+                                <field name="total_amount" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <chatter/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="rental_booking_view_search" model="ir.ui.view">
+        <field name="name">rental.booking.view.search</field>
+        <field name="model">rental.booking</field>
+        <field name="arch" type="xml">
+            <search string="Search Bookings">
+                <field name="booking_number"/>
+                <field name="customer_id"/>
+                <field name="vehicle_id"/>
+                <field name="pickup_date"/>
+                <field name="return_date"/>
+                <filter string="Inactive" name="filter_inactive"
+                            domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_rental_booking_list" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="res_model">rental.booking</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No bookings yet. Start by adding a booking.
+            </p>
+            <p>Track all customer bookings including pickup/return details, duration, and current status.</p>
+        </field>
+    </record>
+</odoo>

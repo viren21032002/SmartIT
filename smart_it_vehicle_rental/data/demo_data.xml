@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--  Customers  -->
+    <record id="customer_emma_wilson" model="res.partner">
+        <field name="name">Emma Wilson</field>
+    </record>
+
+    <record id="customer_liam_thomas" model="res.partner">
+        <field name="name">Liam Thomas</field>
+    </record>
+
+    <record id="customer_olivia_moore" model="res.partner">
+        <field name="name">Olivia Moore</field>
+    </record>
+
+    <record id="customer_noah_clark" model="res.partner">
+        <field name="name">Noah Clark</field>
+    </record>
+
+    <record id="customer_ava_martin" model="res.partner">
+        <field name="name">Ava Martin</field>
+    </record>
+
+
+    <!-- Vehicles -->
+    <record id="vehicle_zephyr_aero_001" model="rental.vehicle">
+        <field name="name">ZX99AA1111</field>
+        <field name="brand">Zephyr</field>
+        <field name="model">Aero</field>
+        <field name="year">2024</field>
+        <field name="category">luxury</field>
+        <field name="color">Silver</field>
+        <field name="seats">4</field>
+        <field name="fuel_type">electric</field>
+        <field name="transmission">automatic</field>
+        <field name="daily_rate">120.0</field>
+        <field name="mileage">500</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN9001</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_nova_sprint_001" model="rental.vehicle">
+        <field name="name">NV88BB2222</field>
+        <field name="brand">Nova</field>
+        <field name="model">Sprint</field>
+        <field name="year">2023</field>
+        <field name="category">compact</field>
+        <field name="color">Green</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">hybrid</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">48.0</field>
+        <field name="mileage">2000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN9002</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_orion_ranger_001" model="rental.vehicle">
+        <field name="name">OR77CC3333</field>
+        <field name="brand">Orion</field>
+        <field name="model">Ranger</field>
+        <field name="year">2025</field>
+        <field name="category">suv</field>
+        <field name="color">Orange</field>
+        <field name="seats">7</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">automatic</field>
+        <field name="daily_rate">85.0</field>
+        <field name="mileage">0</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN9003</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_ford_focus_001" model="rental.vehicle">
+        <field name="name">DL03EF2345</field>
+        <field name="brand">Ford</field>
+        <field name="model">Focus</field>
+        <field name="year">2020</field>
+        <field name="category">compact</field>
+        <field name="color">Blue</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">automatic</field>
+        <field name="daily_rate">42.0</field>
+        <field name="mileage">28000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN1001</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_nissan_altima_002" model="rental.vehicle">
+        <field name="name">KA09GH6789</field>
+        <field name="brand">Nissan</field>
+        <field name="model">Altima</field>
+        <field name="year">2023</field>
+        <field name="category">midsize</field>
+        <field name="color">Black</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">hybrid</field>
+        <field name="transmission">automatic</field>
+        <field name="daily_rate">55.0</field>
+        <field name="mileage">12000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN1002</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_jeep_compass_003" model="rental.vehicle">
+        <field name="name">MH12JK8901</field>
+        <field name="brand">Jeep</field>
+        <field name="model">Compass</field>
+        <field name="year">2022</field>
+        <field name="category">suv</field>
+        <field name="color">Red</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">65.0</field>
+        <field name="mileage">18000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN1003</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_kia_seltos_004" model="rental.vehicle">
+        <field name="name">KA04MN4321</field>
+        <field name="brand">Kia</field>
+        <field name="model">Seltos</field>
+        <field name="year">2023</field>
+        <field name="category">suv</field>
+        <field name="color">White</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">automatic</field>
+        <field name="daily_rate">62.0</field>
+        <field name="mileage">22000</field>
+        <field name="status">rented</field>
+        <field name="vin_number">VIN2001</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_audi_q7_005" model="rental.vehicle">
+        <field name="name">TN01JK8765</field>
+        <field name="brand">Audi</field>
+        <field name="model">Q7</field>
+        <field name="year">2024</field>
+        <field name="category">luxury</field>
+        <field name="color">Navy Blue</field>
+        <field name="seats">7</field>
+        <field name="fuel_type">hybrid</field>
+        <field name="transmission">automatic</field>
+        <field name="daily_rate">130.0</field>
+        <field name="mileage">9500</field>
+        <field name="status">rented</field>
+        <field name="vin_number">VIN2002</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_chevrolet_silverado_006" model="rental.vehicle">
+        <field name="name">DL11TR9988</field>
+        <field name="brand">Chevrolet</field>
+        <field name="model">Silverado</field>
+        <field name="year">2021</field>
+        <field name="category">truck</field>
+        <field name="color">Silver</field>
+        <field name="seats">2</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">75.0</field>
+        <field name="mileage">46000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN2003</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_tata_tiago_007" model="rental.vehicle">
+        <field name="name">MH14BC4567</field>
+        <field name="brand">Tata</field>
+        <field name="model">Tiago</field>
+        <field name="year">2022</field>
+        <field name="category">economy</field>
+        <field name="color">Grey</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">gasoline</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">30.0</field>
+        <field name="mileage">17000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN2004</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_renault_kwid_008" model="rental.vehicle">
+        <field name="name">UP32XZ2345</field>
+        <field name="brand">Renault</field>
+        <field name="model">Kwid</field>
+        <field name="year">2022</field>
+        <field name="category">economy</field>
+        <field name="color">Orange</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">gasoline</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">28.0</field>
+        <field name="mileage">9500</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN3001</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_mg_comet_ev_009" model="rental.vehicle">
+        <field name="name">RJ14EV6789</field>
+        <field name="brand">MG</field>
+        <field name="model">Comet EV</field>
+        <field name="year">2023</field>
+        <field name="category">compact</field>
+        <field name="color">Silver</field>
+        <field name="seats">4</field>
+        <field name="fuel_type">electric</field>
+        <field name="transmission">automatic</field>
+        <field name="daily_rate">50.0</field>
+        <field name="mileage">7000</field>
+        <field name="status">maintenance</field>
+        <field name="vin_number">VIN3002</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_honda_city_010" model="rental.vehicle">
+        <field name="name">MP09AB1122</field>
+        <field name="brand">Honda</field>
+        <field name="model">City</field>
+        <field name="year">2021</field>
+        <field name="category">midsize</field>
+        <field name="color">Grey</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">gasoline</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">47.0</field>
+        <field name="mileage">31000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN3003</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_volvo_xc60_011" model="rental.vehicle">
+        <field name="name">WB08PL7788</field>
+        <field name="brand">Volvo</field>
+        <field name="model">XC60</field>
+        <field name="year">2023</field>
+        <field name="category">luxury</field>
+        <field name="color">Black</field>
+        <field name="seats">5</field>
+        <field name="fuel_type">hybrid</field>
+        <field name="transmission">automatic</field>
+        <field name="daily_rate">135.0</field>
+        <field name="mileage">6000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN3004</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_toyota_fortuner_012" model="rental.vehicle">
+        <field name="name">CH02YY1111</field>
+        <field name="brand">Toyota</field>
+        <field name="model">Fortuner</field>
+        <field name="year">2022</field>
+        <field name="category">suv</field>
+        <field name="color">White</field>
+        <field name="seats">7</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">80.0</field>
+        <field name="mileage">25000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN3005</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_mahindra_bolero_pickup_013" model="rental.vehicle">
+        <field name="name">HR26TR6789</field>
+        <field name="brand">Mahindra</field>
+        <field name="model">Bolero Pickup</field>
+        <field name="year">2020</field>
+        <field name="category">truck</field>
+        <field name="color">White</field>
+        <field name="seats">2</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">60.0</field>
+        <field name="mileage">55000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN3006</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_toyota_camry_014" model="rental.vehicle">
+        <field name="name">GJ08HJ7788</field>
+        <field name="brand">Toyota</field>
+        <field name="model">Camry</field>
+        <field name="year">2020</field>
+        <field name="category">luxury</field>
+        <field name="color">White</field>
+        <field name="seats">4</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">160.0</field>
+        <field name="mileage">55000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN3016</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="vehicle_honda_civic_015" model="rental.vehicle">
+        <field name="name">GJ27EJ8899</field>
+        <field name="brand">Hyundai</field>
+        <field name="model">NIOS</field>
+        <field name="year">2024</field>
+        <field name="category">midsize</field>
+        <field name="color">Aqua Teal</field>
+        <field name="seats">4</field>
+        <field name="fuel_type">diesel</field>
+        <field name="transmission">manual</field>
+        <field name="daily_rate">80.0</field>
+        <field name="mileage">65000</field>
+        <field name="status">available</field>
+        <field name="vin_number">VIN3017</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Bookings -->
+    <record id="booking_emma_wilson" model="rental.booking">
+        <field name="customer_id" ref="customer_emma_wilson"/>
+        <field name="vehicle_id" ref="vehicle_kia_seltos_004"/>
+        <field name="pickup_date">2025-07-21 10:00:00</field>
+        <field name="return_date">2025-07-25 10:00:00</field>
+        <field name="pickup_location">Pune</field>
+        <field name="return_location">Pune</field>
+        <field name="daily_rate">60.0</field>
+        <field name="deposit_amount">150.0</field>
+        <field name="driver_license">DL12345678</field>
+        <field name="state">active</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="booking_liam_thomas" model="rental.booking">
+        <field name="customer_id" ref="customer_liam_thomas"/>
+        <field name="vehicle_id" ref="vehicle_audi_q7_005"/>
+        <field name="pickup_date">2025-07-15 09:00:00</field>
+        <field name="return_date">2025-07-20 09:00:00</field>
+        <field name="actual_return_date">2025-07-21 09:00:00</field>
+        <field name="pickup_location">Chennai</field>
+        <field name="return_location">Chennai</field>
+        <field name="daily_rate">120.0</field>
+        <field name="deposit_amount">200.0</field>
+        <field name="driver_license">DL23456789</field>
+        <field name="state">completed</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="booking_olivia_moore" model="rental.booking">
+        <field name="customer_id" ref="customer_olivia_moore"/>
+        <field name="vehicle_id" ref="vehicle_chevrolet_silverado_006"/>
+        <field name="pickup_date">2025-07-12 12:00:00</field>
+        <field name="return_date">2025-07-14 12:00:00</field>
+        <field name="pickup_location">Delhi</field>
+        <field name="return_location">Delhi</field>
+        <field name="daily_rate">70.0</field>
+        <field name="deposit_amount">100.0</field>
+        <field name="driver_license">DL34567890</field>
+        <field name="state">cancelled</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="booking_noah_clark" model="rental.booking">
+        <field name="customer_id" ref="customer_noah_clark"/>
+        <field name="vehicle_id" ref="vehicle_renault_kwid_008"/>
+        <field name="pickup_date">2025-07-28 11:00:00</field>
+        <field name="return_date">2025-07-30 11:00:00</field>
+        <field name="pickup_location">Bangalore</field>
+        <field name="return_location">Bangalore</field>
+        <field name="daily_rate">30.0</field>
+        <field name="deposit_amount">70.0</field>
+        <field name="driver_license">DL45678901</field>
+        <field name="state">confirmed</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="booking_ava_martin" model="rental.booking">
+        <field name="customer_id" ref="customer_ava_martin"/>
+        <field name="vehicle_id" ref="vehicle_honda_city_010"/>
+        <field name="pickup_date">2025-07-27 09:00:00</field>
+        <field name="return_date">2025-07-29 09:00:00</field>
+        <field name="pickup_location">Mumbai</field>
+        <field name="return_location">Pune</field>
+        <field name="daily_rate">48.0</field>
+        <field name="deposit_amount">80.0</field>
+        <field name="driver_license">DL56789012</field>
+        <field name="state">draft</field>
+        <field name="active" eval="True"/>
+    </record>
+
+
+   <!-- Maintenance -->
+    <record id="maintenance_mg_comet_ev" model="rental.maintenance">
+        <field name="vehicle_id" ref="vehicle_mg_comet_ev_009"/>
+        <field name="maintenance_type">repair</field>
+        <field name="description">Battery replacement</field>
+        <field name="scheduled_date">2025-07-26</field>
+        <field name="state">scheduled</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="maintenance_volvo_xc60" model="rental.maintenance">
+        <field name="vehicle_id" ref="vehicle_volvo_xc60_011"/>
+        <field name="maintenance_type">inspection</field>
+        <field name="description">Luxury inspection</field>
+        <field name="scheduled_date">2025-07-28</field>
+        <field name="state">scheduled</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="maintenance_toyota_fortuner" model="rental.maintenance">
+        <field name="vehicle_id" ref="vehicle_toyota_fortuner_012"/>
+        <field name="maintenance_type">routine</field>
+        <field name="description">Oil and coolant check</field>
+        <field name="scheduled_date">2025-07-30</field>
+        <field name="state">scheduled</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="maintenance_honda_civic" model="rental.maintenance">
+        <field name="vehicle_id" ref="vehicle_toyota_camry_014"/>
+        <field name="maintenance_type">cleaning</field>
+        <field name="description">Full cleaning</field>
+        <field name="scheduled_date">2025-07-31</field>
+        <field name="state">in_progress</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="maintenance_toyota_camry" model="rental.maintenance">
+        <field name="vehicle_id" ref="vehicle_honda_civic_015"/>
+        <field name="maintenance_type">inspection</field>
+        <field name="description">Annual inspection</field>
+        <field name="scheduled_date">2025-08-01</field>
+        <field name="state">completed</field>
+        <field name="active" eval="True"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ir_cron_routine_maintenance_scheduler" model="ir.cron">
+        <field name="name">Maintenance: Routine Maintenance Scheduler</field>
+        <field name="model_id" ref="smart_it_vehicle_rental.model_rental_maintenance"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_proceed_routine_maintenance()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="ir_cron_process_booking_late_returns" model="ir.cron">
+        <field name="name">Return: Process Late Returns</field>
+        <field name="model_id" ref="smart_it_vehicle_rental.model_rental_booking"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_late_return_process()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+        <field name="nextcall"
+               eval="(DateTime.now() + timedelta(days=1)).replace(hour=6, minute=0, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+
+    <record id="ir_cron_update_vehicle_status_from_maintenance" model="ir.cron">
+        <field name="name">Maintenance: Update Vehicle Status</field>
+        <field name="model_id" ref="smart_it_vehicle_rental.model_rental_maintenance"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_update_maintenance_status()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="ir__cron_mileage_reminders" model="ir.cron">
+        <field name="name">Maintenance: Generate Mileage Reminder</field>
+        <field name="model_id" ref="smart_it_vehicle_rental.model_rental_maintenance"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_mileage_reminders()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>
