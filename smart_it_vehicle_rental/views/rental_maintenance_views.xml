@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="rental_maintenance_view_list" model="ir.ui.view">
+        <field name="name">rental.maintenance.view.list</field>
+        <field name="model">rental.maintenance</field>
+        <field name="arch" type="xml">
+            <list string="Vehicle Maintenances" default_order="scheduled_date desc">
+                <field name="vehicle_id"/>
+                <field name="maintenance_type"/>
+                <field name="scheduled_date"/>
+                <field name="state"/>
+                <field name="cost" sum="Cost" string="Cost"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="rental_maintenance_view_form" model="ir.ui.view">
+        <field name="name">rental.maintenance.view.form</field>
+        <field name="model">rental.maintenance</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle Maintenance" duplicate="false">
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="scheduled,in_progress,completed,cancelled"/>
+                    <button name="action_initiate_maintenance" type="object" string="Start"
+                            class="btn btn-primary"
+                            invisible="state != 'scheduled'"/>
+                    <button name="action_complete" type="object" string="Complete"
+                            class="btn btn-primary"
+                            invisible="state != 'in_progress'"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            class="btn btn-primary"
+                            invisible="state in ('completed', 'cancelled')"/>
+                    <button name="action_scheduled" type="object" string="Reset to Scheduled"
+                            class="btn btn-primary"
+                            invisible="state != 'cancelled'"/>
+                </header>
+
+                <sheet>
+                    <group string="Maintenance Overview" name="maintenance_overview">
+                        <field name="active" invisible="1"/>
+                        <field name="vehicle_id" readonly="state != 'scheduled'"/>
+                        <field name="maintenance_type" readonly="state != 'scheduled'"/>
+                    </group>
+                    <group>
+                        <group string="Vehicle &amp; Mechanic" name="vehicle_mechanic">
+                            <field name="mechanic_id"/>
+                        </group>
+                        <group string="Schedule &amp; Description" name="schedule_description">
+                            <field name="scheduled_date" required="1"/>
+                            <field name="completed_date" readonly="1"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Service Info" name="service_info">
+                            <group>
+                                <field name="mileage_at_service"/>
+                                <field name="cost"/>
+                            </group>
+                            <group string="Next Service">
+                                <field name="next_service_mileage"/>
+                                <field name="next_service_date"/>
+                            </group>
+                        </page>
+
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Internal notes about this maintenance..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <chatter/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="rental_maintenance_view_search" model="ir.ui.view">
+        <field name="name">rental.maintenance.view.search</field>
+        <field name="model">rental.maintenance</field>
+        <field name="arch" type="xml">
+            <search string="Search Maintenance">
+                <field name="vehicle_id"/>
+                <field name="maintenance_type"/>
+                <filter string="Inactive" name="filter_inactive"
+                            domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_rental_maintenance_list" model="ir.actions.act_window">
+        <field name="name">Maintenance</field>
+        <field name="res_model">rental.maintenance</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No maintenance records found. Log upcoming services to keep vehicles in top condition.
+            </p>
+            <p>Monitor scheduled maintenance, inspections, repairs, and their completion status.</p>
+        </field>
+    </record>
+
+</odoo>

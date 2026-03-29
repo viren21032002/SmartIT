@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="smart_it_vehicle_rental_menu_root"
+              name="Vehicle Rental"
+              sequence="10"/>
+
+    <menuitem id="smart_it_vehicle_rental_menu_bookings"
+              name="Bookings"
+              parent="smart_it_vehicle_rental_menu_root"
+              action="action_rental_booking_list"
+              sequence="10"/>
+
+    <menuitem id="smart_it_vehicle_rental_menu_vehicles"
+              name="Vehicles"
+              parent="smart_it_vehicle_rental_menu_root"
+              action="action_rental_vehicle_list"
+              sequence="20"/>
+
+    <menuitem id="smart_it_vehicle_rental_menu_maintenance"
+              name="Maintenance"
+              parent="smart_it_vehicle_rental_menu_root"
+              action="action_rental_maintenance_list"
+              sequence="30"/>
+</odoo>

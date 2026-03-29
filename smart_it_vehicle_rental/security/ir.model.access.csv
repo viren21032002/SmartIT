@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+smart_it_vehicle_rental.access_rental_booking,access_rental_booking,smart_it_vehicle_rental.model_rental_booking,base.group_user,1,1,1,1
+smart_it_vehicle_rental.access_rental_maintenance,access_rental_maintenance,smart_it_vehicle_rental.model_rental_maintenance,base.group_user,1,1,1,1
+smart_it_vehicle_rental.access_rental_vehicle,access_rental_vehicle,smart_it_vehicle_rental.model_rental_vehicle,base.group_user,1,1,1,1

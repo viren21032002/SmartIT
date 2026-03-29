@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="rental_vehicle_view_list" model="ir.ui.view">
+        <field name="name">rental.vehicle.view.list</field>
+        <field name="model">rental.vehicle</field>
+        <field name="arch" type="xml">
+            <list string="Vehicles">
+                <field name="name" string="Vehicle"/>
+                <field name="brand"/>
+                <field name="category"/>
+                <field name="model"/>
+                <field name="status" widget="badge"/>
+                <field name="daily_rate"/>
+                <field name="total_rentals"/>
+                <field name="total_revenue"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="rental_vehicle_view_form" model="ir.ui.view">
+        <field name="name">rental.vehicle.view.form</field>
+        <field name="model">rental.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle" duplicate="false">
+                <header>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="draft,available,rented,maintenance,unavailable"/>
+                </header>
+
+                <sheet>
+                    <group string="Vehicle Info" name="vehicle_top_info">
+                        <field name="active" invisible="1"/>
+                        <field name="name"/>
+                        <field name="brand"/>
+                        <field name="model"/>
+                    </group>
+                    <group>
+                        <group string="Vehicle Details" name="vehicle_details">
+                            <field name="year" widget="char"/>
+                            <field name="vin_number"/>
+                            <field name="category"/>
+                            <field name="color"/>
+                            <field name="seats"/>
+                            <field name="fuel_type"/>
+                            <field name="transmission"/>
+                        </group>
+                        <group string="Status &amp; Rates" name="status_and_rates">
+                            <field name="daily_rate"/>
+                            <field name="mileage"/>
+                            <field name="total_rentals" readonly="1"/>
+                            <field name="total_revenue" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Bookings" name="bookings">
+                            <field name="rental_ids" readonly="1">
+                                <list editable="bottom">
+                                    <field name="booking_number" string="Booking #"/>
+                                    <field name="customer_id"/>
+                                    <field name="vehicle_id"/>
+                                    <field name="pickup_date"/>
+                                    <field name="return_date"/>
+                                    <field name="total_amount" sum="Total Amount"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Maintenance" name="maintenance">
+                            <field name="maintenance_ids" readonly="1">
+                                <list editable="bottom">
+                                    <field name="vehicle_id"/>
+                                    <field name="maintenance_type"/>
+                                    <field name="scheduled_date"/>
+                                    <field name="state"/>
+                                    <field name="cost" string="Cost"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <chatter/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rental_vehicle_search" model="ir.ui.view">
+        <field name="name">rental.vehicle.search</field>
+        <field name="model">rental.vehicle</field>
+        <field name="arch" type="xml">
+            <search string="Search Vehicles">
+                <field name="name"/>
+                <field name="brand"/>
+                <field name="category"/>
+                <field name="status"/>
+                <filter string="Inactive" name="filter_inactive"
+                            domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_rental_vehicle_list" model="ir.actions.act_window">
+        <field name="name">Vehicles</field>
+        <field name="res_model">rental.vehicle</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first vehicle to manage availability, specifications, and maintenance.
+            </p>
+            <p>Manage the full catalog of vehicles available for rental, including make, model, fuel type, and status.</p>
+        </field>
+    </record>
+
+</odoo>
